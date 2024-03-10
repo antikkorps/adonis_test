@@ -11,7 +11,7 @@ import router from '@adonisjs/core/services/router'
 import Route from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 
-const TestController = () => import('#controllers/test_controller')
+const AuthController = () => import('#controllers/auth_controller')
 
 router.get('/', async () => {
   return {
@@ -20,8 +20,10 @@ router.get('/', async () => {
 })
 
 Route.group(() => {
-  Route.post('/auth/register', [TestController, 'register'])
-  Route.post('/auth/login', [TestController, 'login'])
+  Route.get('/auth/register', [AuthController, 'register']).as('auth.register')
+  Route.post('/auth/register', [AuthController, 'handleRegister'])
+  Route.get('/auth/login', [AuthController, 'login']).as('auth.login')
+  Route.post('/auth/login', [AuthController, 'handleLogin'])
   Route.get('/dashboard', async () => {}).use(
     middleware.auth({
       guards: ['web'],
