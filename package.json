@@ -50,10 +50,10 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@adonisjs/auth": "^8.2.3",
+    "@adonisjs/auth": "^9.5.1",
     "@adonisjs/core": "^6.10.1",
     "@adonisjs/cors": "^2.2.1",
-    "@adonisjs/lucid": "^20.1.0",
+    "@adonisjs/lucid": "^21.8.2",
     "@adonisjs/session": "^6.4.0",
     "@vinejs/vine": "^2.1.0",
     "luxon": "^3.4.4",
